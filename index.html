@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="zh-CN" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>单片机 Web 开发工具平台</title>
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <link rel="icon" type="image/svg+xml" href="./icon.svg" />
+    <meta name="theme-color" content="#101821" />
+    <script>
+      // 主题预置：首屏前按本地偏好切深/浅，避免闪白（默认深色）
+      try {
+        if (JSON.parse(localStorage.getItem('mcu-web-tools.ui') || '{}').theme === 'light') {
+          document.documentElement.classList.remove('dark')
+        }
+      } catch {}
+      // 黑屏诊断钩子：收集模块加载/启动阶段的全局错误（window.__bootErrors）
+      window.__bootErrors = []
+      window.addEventListener('error', (e) => {
+        window.__bootErrors.push(`${e.message} @ ${e.filename || ''}:${e.lineno || ''}`)
+      })
+      window.addEventListener('unhandledrejection', (e) => {
+        const reason = e.reason && e.reason.stack ? e.reason.stack : String(e.reason)
+        window.__bootErrors.push(`unhandledrejection: ${reason}`)
+      })
+    </script>
+    <script type="module" crossorigin src="./assets/index-BVeMJtQo.js"></script>
+    <link rel="modulepreload" crossorigin href="./assets/vue-A_Q5-Yp-.js">
+    <link rel="modulepreload" crossorigin href="./assets/element-plus-BxMK4Wqu.js">
+    <link rel="stylesheet" crossorigin href="./assets/index-Gt25ikGb.css">
+  </head>
+  <body>
+    <div id="app"></div>
+  </body>
+</html>
