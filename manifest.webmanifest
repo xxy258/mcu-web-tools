@@ -1,0 +1,19 @@
+{
+  "name": "MCU 工具平台",
+  "short_name": "MCU 工具",
+  "description": "单片机 Web 开发工具平台：串口助手、示波器、Modbus 调试、OTA、上位机等，浏览器即用。",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#0b0f14",
+  "theme_color": "#101821",
+  "lang": "zh-CN",
+  "icons": [
+    {
+      "src": "./icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}
